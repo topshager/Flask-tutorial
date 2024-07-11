@@ -1,0 +1,6 @@
+
+*.py
+.venv/lib/python3.11/site-packages/werkzeug/wrappers/response.py
+*.pyc
+/.venv
+.venv
