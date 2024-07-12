@@ -1,10 +1,15 @@
 import sqlite3
 import click
-from flask import  current_app,g#special character that points to flask application handeling the reqest.
+from flask import Flask, current_app,g#special character that points to flask application handeling the reqest.
 from flask.cli import with_appcontext
 
+
+
+app = Flask(__name__)
+app.config['DATABASE'] = 'db.py'
+
 def get_db():
-    if 'db' not in g:#g is unique for each request  -used to store data  that might be acce by multiplefunctions during the request
+    if 'db' not in g:#g is unique for each request  -used to store data  that might be accessed by multiplefunctions during the request
         g.db = sqlite3.connect(
             current_app.config['DATABASE'],
             detect_types=sqlite3.PARSE_DECLTYPES
